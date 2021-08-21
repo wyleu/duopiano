@@ -100,7 +100,10 @@ class TestDuoPianoMidiOut(unittest.TestCase):
         duo_piano.strike_note(1,60,10,.25)
         self.assertTrue(keyread("Did You hear a note ...?\n",yn=False, ret=True))
         print('Press a note on the keyboard')
+        duo_piano.read_note()
+        
 
     
 if __name__ == "__main__":
+
     unittest.main()

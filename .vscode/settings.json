@@ -1,3 +1,18 @@
 {
     "python.formatting.provider": "black",
+    "cSpell.ignoreWords": [
+        "eof",
+        "error",
+        "except",
+        "exit",
+        "interrupt",
+        "keyboard",
+        "midiin",
+        "midiinput",
+        "name",
+        "open",
+        "port",
+        "sys",
+        "try"
+    ],
 }
