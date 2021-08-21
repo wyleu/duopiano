@@ -87,7 +87,10 @@ class TestDuoPianoMidiOut(unittest.TestCase):
         duo_piano = DuoPiano()
         dout = duo_piano.get_duo_out()
         duo_piano.strike_note(1,60,10,.25)
-        print('DID YOU HEAR IT...?')
+        self.assertTrue(keyread("Did You hear a note ...?\n"))
+        print('Press a note on the keyboard')
+
+        
 
 
 if __name__ == "__main__":

@@ -1,0 +1,5 @@
+python-rtmidi==1.4.9
+# sudo apt-get install libasound2-dev
+# sudo apt-get install libjack-jackd2-dev 
+# NOT libjack-jack-dev
+keyboard
