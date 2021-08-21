@@ -4,7 +4,7 @@ test duo_piano_midi.py
 
 import unittest
 from duo_piano_midi import DuoPiano
-from keyboard_wait import keyread
+from keyread import keyread
 
 
 # class TestKeyboardWait(unittest.TestCase):

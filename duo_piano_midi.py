@@ -15,7 +15,6 @@ Wake Up:
 DUO_PIANO_STRING = "GENERAL:GENERAL MIDI 1"
 
 import time
-from types import resolve_bases
 import rtmidi
 
 
