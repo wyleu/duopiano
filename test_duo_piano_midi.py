@@ -6,6 +6,10 @@ import unittest
 from duo_piano_midi import DuoPiano
 from keyread import keyread
 
+# class TestKeyHitWait(unittest.TestCase):
+#     def test_user_for_P_key(self):
+#         self.assertTrue(keyhit('p'))
+
 
 # class TestKeyboardWait(unittest.TestCase):
 #     def test_user_for_P_key_yn_false(self):
@@ -94,11 +98,9 @@ class TestDuoPianoMidiOut(unittest.TestCase):
         duo_piano = DuoPiano()
         dout = duo_piano.get_duo_out()
         duo_piano.strike_note(1,60,10,.25)
-        self.assertTrue(keyread("Did You hear a note ...?\n"))
+        self.assertTrue(keyread("Did You hear a note ...?\n",yn=False, ret=True))
         print('Press a note on the keyboard')
 
-        
-
-
+    
 if __name__ == "__main__":
     unittest.main()

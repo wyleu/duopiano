@@ -4,7 +4,8 @@ timeout = None
 
 def keyread(
     text= "You have 5 seconds to type text and press <Enter>... ",
-    yn = True
+    yn = True,
+    ret = False
     ):
     inp = stdinWait(text, "[no text]", 5, "Aw man! You ran out of time!!")
     if not timeout:
@@ -12,6 +13,9 @@ def keyread(
             if inp in ['Y','y']:
                 return True
             return False
+        if ret:
+            if inp == '':
+                return True
         else:
             return inp
 
