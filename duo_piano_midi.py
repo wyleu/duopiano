@@ -54,7 +54,7 @@ class DuoPiano:
         res_dict = {}
 
         for count, item in enumerate(self.midiin.get_ports()):
-            print(count, item)
+            # print(count, item)
 
             if DUO_PIANO_STRING in item:
                 return self.midiin.open_port(count)

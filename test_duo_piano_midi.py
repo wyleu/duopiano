@@ -23,7 +23,14 @@ from keyread import keyread
 
 class TestDuoPianoMidi(unittest.TestCase):
 
-    name = "GENERAL:GENERAL MIDI 1 28:0"
+    name = "GENERAL:GENERAL MIDI 1"
+
+    def find_in_list(self, str, ports):
+        for port in ports:
+            if str in port:
+                # print (port)
+                return True
+        return False
 
     def test_duo_piano_out_port_aquire(self):
         duo_piano = DuoPiano()
@@ -36,22 +43,22 @@ class TestDuoPianoMidi(unittest.TestCase):
     def test_duo_piano_in_port_recognised_portsin(self):
         duo_piano = DuoPiano()
 
-        self.assertIn(self.name, duo_piano.portsin)
+        self.assertTrue(self.find_in_list(self.name, duo_piano.portsin))
 
     def test_duo_piano_out_port_recognised_portsout(self):
         duo_piano = DuoPiano()
 
-        self.assertIn(self.name, duo_piano.portsout)
+        self.assertTrue(self.find_in_list(self.name, duo_piano.portsout))
 
     def test_duo_piano_in_port_recognised_aquire_in(self):
         duo_piano = DuoPiano()
 
-        self.assertIn(self.name, duo_piano.portsin)
+        self.assertTrue(self.find_in_list(self.name, duo_piano.portsin))
 
     def test_duo_piano_out_port_recognised_aquire_out(self):
         duo_piano = DuoPiano()
-
-        self.assertIn(self.name, duo_piano.portsout)
+        self.assertTrue(self.find_in_list(self.name, duo_piano.portsout))
+        
 
     def test_recognised_in_port_and_open(self):
         """
