@@ -25,21 +25,15 @@ class MidiInHandler:
     def __init__(self, channel=1, controllers=None):
         self.ch = channel
         self.ccs = controllers or ()
-        self._cur_value = {}
+        self._cur_value = None
+        self._wallclock = time.time()
 
     def __call__(self, event, *args):
         event, delta = event
+        self._wallclock += delta
         status = event[0] & 0xF0
         ch = event[0] & 0xF
-        print('Event:-', event)
-        print('Event[0]:-', event[0])
-        print('Event[1]:-', event[1])
-        try:
-            print('Event[2]:-', event[2])
-            self._cur_value[event[1]] = event[2]
-        except IndexError:
-            self._cur_value[event[1]] = event[1]
-
+        self._cur_value = event
         
 
     def get(self):
@@ -121,8 +115,12 @@ class DuoPiano:
             # Just wait for keyboard interrupt,
             # everything else is handled via the input callback.
             while True:
-                print('IN Read Note:-', handler.get())
+                event = handler.get()
+                if event:
+                    if event[0] in (144, 128):
+                        return event
                 time.sleep(1)
+                
         except KeyboardInterrupt:
             print('')
         finally:
